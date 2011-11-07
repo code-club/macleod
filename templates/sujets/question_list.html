@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table>
+{% for question in question_list %}
+<tr><td><a href="{{ question.get_absolute_url }}">{{ question }}</a></td></tr>
+{% endfor %}
+</table>
+
+{% endblock %}

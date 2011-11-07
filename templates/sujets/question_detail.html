@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4>{{question}}</h4>
+
+<table>
+{% for option in question.option_set.all %}
+<tr>
+    <td>{{option}}</td> 
+    <td>{{option.voters.count}}{%csrf_token%}</td>
+    <td>
+    	<form action="{%url vote%}" method=POST>
+    		<input type="hidden" name="vote" id="id_vote" value="{{option.id}}" />
+    		<input type="submit" value="bim"/>
+		</form>
+	</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
